@@ -9,34 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selection = 0
+    @State private var _authenticated = false
  
+    @ViewBuilder
     var body: some View {
-        TabView(selection: $selection){
-            Text("First View")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image("first")
-                        Text("First")
-                    }
-                }
-                .tag(0)
-            Text("Second View")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image("second")
-                        Text("Second")
-                    }
-                }
-                .tag(1)
+        if (self._authenticated == true) {
+            MainView()
+        } else {
+            LoginView(didClickLogin: self._onLoginClick)
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    private func _onLoginClick() {
+        self._authenticated = true
     }
 }

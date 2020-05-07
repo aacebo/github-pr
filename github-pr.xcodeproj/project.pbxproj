@@ -14,6 +14,14 @@
 		06768DA4245BA49200BB842A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06768DA3245BA49200BB842A /* Assets.xcassets */; };
 		06768DA7245BA49200BB842A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06768DA6245BA49200BB842A /* Preview Assets.xcassets */; };
 		06768DAA245BA49200BB842A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06768DA8245BA49200BB842A /* LaunchScreen.storyboard */; };
+		06768DB4245BA5E700BB842A /* PullRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768DB3245BA5E700BB842A /* PullRequestView.swift */; };
+		06768DB6245BA5F800BB842A /* PullRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768DB5245BA5F800BB842A /* PullRequestViewController.swift */; };
+		06768DBA245BA6A800BB842A /* LoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768DB9245BA6A800BB842A /* LoggerService.swift */; };
+		06768DBD245BA8EC00BB842A /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768DBC245BA8EC00BB842A /* AccountView.swift */; };
+		06768DBF245BA8FD00BB842A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768DBE245BA8FD00BB842A /* AccountViewController.swift */; };
+		06768DC2245BACFC00BB842A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768DC1245BACFC00BB842A /* LoginView.swift */; };
+		06768DC7245BAE2700BB842A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768DC6245BAE2700BB842A /* MainView.swift */; };
+		06768DCF245BB68D00BB842A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768DCE245BB68D00BB842A /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,14 @@
 		06768DA6245BA49200BB842A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		06768DA9245BA49200BB842A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06768DAB245BA49200BB842A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06768DB3245BA5E700BB842A /* PullRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestView.swift; sourceTree = "<group>"; };
+		06768DB5245BA5F800BB842A /* PullRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewController.swift; sourceTree = "<group>"; };
+		06768DB9245BA6A800BB842A /* LoggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerService.swift; sourceTree = "<group>"; };
+		06768DBC245BA8EC00BB842A /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		06768DBE245BA8FD00BB842A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		06768DC1245BACFC00BB842A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		06768DC6245BAE2700BB842A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		06768DCE245BB68D00BB842A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,8 @@
 		06768D99245BA49100BB842A /* github-pr */ = {
 			isa = PBXGroup;
 			children = (
+				06768DB7245BA69200BB842A /* Core */,
+				06768DB2245BA5AE00BB842A /* Features */,
 				06768D9A245BA49100BB842A /* AppDelegate.swift */,
 				06768D9C245BA49100BB842A /* SceneDelegate.swift */,
 				06768DA1245BA49100BB842A /* ContentView.swift */,
@@ -76,6 +94,76 @@
 				06768DA6245BA49200BB842A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		06768DB1245BA56300BB842A /* PullRequest */ = {
+			isa = PBXGroup;
+			children = (
+				06768DB3245BA5E700BB842A /* PullRequestView.swift */,
+				06768DB5245BA5F800BB842A /* PullRequestViewController.swift */,
+			);
+			path = PullRequest;
+			sourceTree = "<group>";
+		};
+		06768DB2245BA5AE00BB842A /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				06768DC5245BAD7D00BB842A /* Main */,
+				06768DC0245BACAF00BB842A /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		06768DB7245BA69200BB842A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				06768DCD245BB66F00BB842A /* Theme */,
+				06768DB8245BA69900BB842A /* Logger */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		06768DB8245BA69900BB842A /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				06768DB9245BA6A800BB842A /* LoggerService.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		06768DBB245BA8B500BB842A /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				06768DBC245BA8EC00BB842A /* AccountView.swift */,
+				06768DBE245BA8FD00BB842A /* AccountViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		06768DC0245BACAF00BB842A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				06768DC1245BACFC00BB842A /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		06768DC5245BAD7D00BB842A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				06768DC6245BAE2700BB842A /* MainView.swift */,
+				06768DB1245BA56300BB842A /* PullRequest */,
+				06768DBB245BA8B500BB842A /* Account */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		06768DCD245BB66F00BB842A /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				06768DCE245BB68D00BB842A /* Theme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +238,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				06768D9B245BA49100BB842A /* AppDelegate.swift in Sources */,
+				06768DC7245BAE2700BB842A /* MainView.swift in Sources */,
+				06768DB6245BA5F800BB842A /* PullRequestViewController.swift in Sources */,
 				06768D9D245BA49100BB842A /* SceneDelegate.swift in Sources */,
+				06768DB4245BA5E700BB842A /* PullRequestView.swift in Sources */,
+				06768DBD245BA8EC00BB842A /* AccountView.swift in Sources */,
 				06768DA2245BA49100BB842A /* ContentView.swift in Sources */,
 				06768DA0245BA49100BB842A /* github_pr.xcdatamodeld in Sources */,
+				06768DBA245BA6A800BB842A /* LoggerService.swift in Sources */,
+				06768DCF245BB68D00BB842A /* Theme.swift in Sources */,
+				06768DC2245BACFC00BB842A /* LoginView.swift in Sources */,
+				06768DBF245BA8FD00BB842A /* AccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
