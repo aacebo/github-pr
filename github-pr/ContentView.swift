@@ -21,6 +21,6 @@ struct ContentView: View {
     }
     
     private func _onLoginClick() {
-        self._authenticated = true
+        // self._authenticated = true
     }
 }

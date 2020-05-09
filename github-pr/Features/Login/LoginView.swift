@@ -1,28 +1,26 @@
 //
-//  LoginView.swift
+//  AuthView.swift
 //  github-pr
 //
-//  Created by Alex Acebo on 4/30/20.
+//  Created by Alex Acebo on 5/8/20.
 //  Copyright © 2020 Alex Acebo. All rights reserved.
 //
 
 import SwiftUI
+import UIKit
 
-struct LoginView: View {
+struct LoginView: UIViewControllerRepresentable {
     let didClickLogin: (() -> Void)?
     
-    var body: some View {
-        Button(action: self._onLoginClick) {
-            Text("LOGIN")
-                .foregroundColor(.white)
-                .padding(8)
-        }.background(Color(Theme.Primary))
-         .cornerRadius(5)
+    func makeUIViewController(context: Context) -> LoginViewController {
+        let controller = LoginViewController()
+        controller.didClickLogin = self.didClickLogin
+        return controller
     }
     
-    private func _onLoginClick() {
-        if (self.didClickLogin != nil) {
-            self.didClickLogin!()
-        }
+    func updateUIViewController(_ loginViewController: LoginViewController, context: Context) {
+        // do stuff here
     }
+    
+    typealias UIViewControllerType = LoginViewController
 }

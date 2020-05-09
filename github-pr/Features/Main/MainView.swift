@@ -12,7 +12,7 @@ struct MainView: View {
     @State private var _selection = 0
  
     var body: some View {
-        TabView(selection: $_selection){
+        TabView(selection: $_selection) {
             PullRequestView()
                 .tabItem {
                     VStack {
