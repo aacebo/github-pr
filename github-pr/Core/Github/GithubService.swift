@@ -12,4 +12,8 @@ let github = GithubService()
 
 class GithubService {
     private let _base = NSLocalizedString("api", comment: "")
+
+    func getAuthUser(onComplete: OnHttpCompleteHandler?) {
+        let _ = HttpClient.get("\(self._base)/user", onComplete: onComplete)
+    }
 }

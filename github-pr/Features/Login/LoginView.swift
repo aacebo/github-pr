@@ -10,11 +10,11 @@ import SwiftUI
 import UIKit
 
 struct LoginView: UIViewControllerRepresentable {
-    let didClickLogin: (() -> Void)?
+    let onAuthComplete: (() -> Void)?
     
     func makeUIViewController(context: Context) -> LoginViewController {
         let controller = LoginViewController()
-        controller.didClickLogin = self.didClickLogin
+        controller.onAuthComplete = self.onAuthComplete
         return controller
     }
     

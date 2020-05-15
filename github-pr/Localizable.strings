@@ -10,3 +10,4 @@
 "main" = "https://github.com";
 "clientId" = "051bf948d5685bc3b4e8";
 "clientSecret" = "b7ac2b32c0ba9a2721e14e93d15d65675ff3e7c5";
+"loginCallback" = "github-pr://login";

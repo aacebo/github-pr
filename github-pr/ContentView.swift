@@ -14,13 +14,15 @@ struct ContentView: View {
     @ViewBuilder
     var body: some View {
         if (self._authenticated == true) {
-            MainView()
+            MainView().edgesIgnoringSafeArea(.top)
         } else {
-            LoginView(didClickLogin: self._onLoginClick)
+            LoginView(onAuthComplete: self._onAuthComplete).edgesIgnoringSafeArea(.top)
         }
     }
     
-    private func _onLoginClick() {
-        // self._authenticated = true
+    private func _onAuthComplete() {
+        DispatchQueue.main.async {
+            self._authenticated = true
+        }
     }
 }

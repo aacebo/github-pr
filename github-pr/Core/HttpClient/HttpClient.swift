@@ -44,8 +44,14 @@ class HttpClient {
     
     private static func _getRequestFromUrl(_ url: String) -> URLRequest {
         var req = URLRequest(url: URL(string: url)!)
+        
         req.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         req.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Accept")
+        
+        if let token = UserDefaults.standard.string(forKey: "AUTH_TOKEN") {
+            req.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
         return req
     }
     
@@ -63,12 +69,12 @@ class HttpClient {
     }
     
     private static func _onComplete(data: Data?, response: URLResponse?, error: Error?, onComplete: OnHttpCompleteHandler?) {
-        if (error != nil) {
-            logger.error(error!.localizedDescription)
+        if let error = error {
+            logger.error(error.localizedDescription)
         }
         
-        if (onComplete != nil) {
-            onComplete!(data, response)
+        if let onComplete = onComplete {
+            onComplete(data, response)
         }
     }
 }

@@ -16,7 +16,7 @@ class PullRequestViewController: UIViewController {
         
         self._button = UIButton(frame: CGRect(x: 100, y: 400, width: 100, height: 50))
         self._button.backgroundColor = UIColor.blue
-        self._button.setTitle("testing123", for: .normal)
+        self._button.setTitle(state.login.user!.login, for: .normal)
         self._button.layer.cornerRadius = 5
         self._button.addTarget(self, action: #selector(self.buttonClick), for: .touchUpInside)
         
@@ -24,7 +24,6 @@ class PullRequestViewController: UIViewController {
     }
     
     @objc func buttonClick(sender: UIButton) {
-        sender.setTitle("ive been hit!", for: .normal)
-        logger.log("hit")
+        UserDefaults.standard.set(nil, forKey: LOGIN_TOKEN)
     }
 }

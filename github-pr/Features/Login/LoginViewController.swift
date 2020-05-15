@@ -10,37 +10,45 @@ import UIKit
 import AuthenticationServices
 
 class LoginViewController: UIViewController, ASWebAuthenticationPresentationContextProviding {
-    var didClickLogin: (() -> Void)?
-    private var _button: UIButton!
     private let _model = LoginViewModel()
+    
+    var onAuthComplete: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self._model.onAuthComplete = self._onAuthComplete
-        
-        self._button = UIButton(frame: CGRect(x: 100, y: 400, width: 100, height: 50))
-        self._button.backgroundColor = UIColor.blue
-        self._button.setTitle("LOGIN", for: .normal)
-        self._button.layer.cornerRadius = 5
-        self._button.addTarget(self, action: #selector(self._onButtonClick), for: .touchUpInside)
-        
-        self.view.addSubview(self._button)
-    }
-    
-    @objc private func _onButtonClick(_sender: UIButton) {
-        if (self.didClickLogin != nil) {
-            self.didClickLogin!()
+        if (state.login.token == nil) {
+            let stack = UIStackView(frame: self.view.bounds)
+            let button = LoginButton()
+            
+            stack.axis = .horizontal
+            stack.alignment = .center
+            stack.distribution = .fillEqually
+            stack.layoutMargins = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
+            stack.isLayoutMarginsRelativeArrangement = true
+            
+            button.addTarget(self, action: #selector(self._onButtonClick), for: .touchUpInside)
+            stack.addArrangedSubview(button)
+            
+            self.view.addSubview(stack)
+        } else if let onComplete = self.onAuthComplete {
+            self._model.getAuthUser {
+                onComplete()
+            }
         }
-        
-        self._model.authenticate(self)
     }
     
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         return self.view.window ?? ASPresentationAnchor()
     }
     
-    private func _onAuthComplete() {
-        logger.log(self._model.token ?? "N/A")
+    @objc private func _onButtonClick(_sender: UIButton) {
+        self._model.authenticate(self) {
+            () in self._model.getAuthUser {
+                if let onComplete = self.onAuthComplete {
+                    onComplete()
+                }
+            }
+        }
     }
 }
